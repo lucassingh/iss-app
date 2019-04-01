@@ -15,7 +15,7 @@ var responseList = document.querySelector('#responseList');
 
 function getLocationList() {
     
-    fetch('https://api.open-notify.org/iss-now.json')
+    fetch('http://api.open-notify.org/iss-now.json')
     .then(responseList => responseList.json())
     .then(data => {
         console.log(data);
