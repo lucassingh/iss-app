@@ -1,0 +1,74 @@
+@font-face {
+    font-family: TitleFont;
+    src: url(../fonts/LeagueSpartan-Bold.otf);
+}
+
+@font-face {
+    font-family: subtitleFont;
+    src: url(../fonts/Gidole-Regular.otf);
+}
+
+.jumbotron {
+    background-image: url(../img/bg2.jpg);
+    background-size: cover;
+    height: 50vh;
+    background-position-y: -250px;
+}
+
+h1 {
+    font-family: titleFont;
+    color: #ffff;
+}
+
+h4 {
+    font-family: titleFont;
+    color: #000;
+}
+
+p {
+    font-family: subtitleFont;
+    color: #ffff;
+}
+
+.container {
+    margin-bottom: 30px;
+}
+
+/*location-container*/
+
+.location-container {
+    width: 600px;
+    margin: auto;
+    display: none;
+}
+
+#current-location {
+    display: none;
+    border-radius: 6px;
+}
+
+#btn-reset-current-location {
+    display: none;
+}
+
+.table-container{
+    display:none;
+}
+
+#btn-reset-locations {
+    display: none;
+}
+
+/*image galery*/
+
+#image {
+    display: none;
+}
+
+#btn-reset-image {
+    display: none;
+}
+
+.img-size {
+    background-size: cover
+}
