@@ -12,21 +12,40 @@ $('#btn-reset-locations').click(function(){
 });
 
 var responseList = document.querySelector('#responseList');
+let positionList = [];
 
 function getLocationList() {
     
     fetch('http://api.open-notify.org/iss-now.json')
     .then(responseList => responseList.json())
     .then(data => {
-        console.log(data);
-        responseList.innerHTML += `
+        if (positionList.length < 15) {
+            positionList.push({
+                latitude: data.iss_position.latitude, 
+                longitude: data.iss_position.longitude
+            });
+        } else {
+            positionList.splice(14, 1);
+            positionList.unshift({
+                latitude: data.iss_position.latitude, 
+                longitude: data.iss_position.longitude
+            });
+            console.dir(positionList);
+        }
+
+        responseList.innerHTML = '';
+        positionList.forEach(element => {
+            responseList.innerHTML +=  `
             <tr class="tr">
-                <th>${data.iss_position.latitude}</th>
-                <th>${data.iss_position.longitude}</th>
+                <th>${element.latitude}</th>
+                <th>${element.longitude}</th>
             </tr>
-        `
+        `;
+        });
     })
-    setInterval(getLocationList, 3000);
+    .then(() => {
+        setTimeout(getLocationList, 1000);
+    })
 }
 
 function resetLocationList() {
