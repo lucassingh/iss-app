@@ -59,13 +59,13 @@ p {
     display: none;
 }
 
-/*image galery*/
-
-#image {
+#btn-reset-image {
     display: none;
 }
 
-#btn-reset-image {
+#map {
+    height: 300px;
+    margin: 25px;
     display: none;
 }
 

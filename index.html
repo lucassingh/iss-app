@@ -42,6 +42,9 @@
         <hr>
         <button class="btn btn-primary" id="btn-locations" onclick="getLocationList()">Locations</button>
         <button class="btn btn-success" id="btn-reset-locations" onclick="resetLocationList()">Reset</button>
+        <div class="container-fluid">
+            <div id="map"></div>
+        </div>
         <div class="location-container" id="locations">
             <div class="container text-center">
                 <table class="table">
@@ -56,32 +59,12 @@
                       </tbody>
                 </table>
             </div>
-        </div>
+        </div>        
     </div>
-    <div class="container">
-        <h4>Images</h4>
-        <hr>
-        <button class="btn btn-primary" id="btn-show-image" onclick="getImage()">Image</button>
-        <button class="btn btn-success" id="btn-reset-image" onclick="resetImage()">Reset</button>
-        <div class="location-container" id="image">
-            <div class="container text-center">
-                <table class="table">
-                    <thead class="thead-dark">
-                        <tr>                  
-                            <th>Image </th>                            
-                        </tr>
-                        </thead>
-                        <tbody id="responseImage">
-                            
-                        </tbody>
-                </table>
-            </div>
-        </div>
-    </div>    
     <script src="js/jquery-2.1.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="js/currentLocation.js"></script>
-    <script src="js/localtionList.js"></script>
-    <script src="js/images.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI5S8aTBTUyIYPTv9t8zwsGmfqkzfZ6EU&callback=initMap" async defer></script>
+    <script src="js/currentLocation.js"></script>    
+    <script src="js/localtionList.js"></script>    
 </body>
 </html>
