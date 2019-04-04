@@ -1,4 +1,4 @@
-
+// UX logic
 $('#btn-locations').click(function(){
     $('#btn-reset-locations').show(500);
     $('#btn-locations').prop('disabled', true);
@@ -18,6 +18,7 @@ let map;
 let positionList = [];
 let markers = [];
 
+//map charge
 window.addEventListener('load', 
     function() { 
         initMap();
@@ -31,9 +32,11 @@ function getLocationList() {
     .then(data => {
         // We update our cluster of Markers showing the last 15 positions of the ISS on the map
         generateMapMarker(data.iss_position.latitude, data.iss_position.longitude);
+
         // We center the map to the latest position we got from API
         updateMapCenter(data.iss_position.latitude, data.iss_position.longitude);
 
+        // Logic for get the 15 locations
         if (positionList.length < 15) {
             positionList.push({
                 latitude: data.iss_position.latitude, 
@@ -47,6 +50,7 @@ function getLocationList() {
             });
         }
 
+        // Response in table
         responseList.innerHTML = '';
         positionList.forEach(element => {
             responseList.innerHTML +=  `
@@ -63,6 +67,7 @@ function getLocationList() {
     })
 }
 
+// Iinitial map
 function initMap() {
 
     fetch('http://api.open-notify.org/iss-now.json')
@@ -78,12 +83,13 @@ function initMap() {
     })
 }
 
+// update map with the last locations
 function updateMapCenter(latitude, longitude) {
     let position = {lat: parseFloat(latitude), lng: parseFloat(longitude)};
-    // debugger;
     map.setCenter(position);
 }
 
+// Generate the markers in map
 function generateMapMarker(latitude, longitude) {
     let position = {lat: parseFloat(latitude), lng: parseFloat(longitude)};
 

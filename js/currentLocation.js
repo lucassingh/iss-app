@@ -1,5 +1,5 @@
 
-
+// UX logic
 $(document).ready(function(){
     $('#btn-current-location').click(function(){
         $('#btn-reset-current-location').show(500);
@@ -16,6 +16,7 @@ $(document).ready(function(){
 
 var response = document.querySelector('#response');
 
+// logic for get data from API
 function getData() {
     
     fetch('http://api.open-notify.org/iss-now.json')
